@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from '../../components/Header/Header';
+import Button from '../../components/Button/Button';
+import {View} from 'react-native';
+import globalStyle from '../../assets/styles/globalStyle';
+import Camera from '../../components/Camera/Camera';
+import style from './style';
 
 const Home = ({navigation}) => {
-  return <Header title={'Home'} />;
+  const [cameraIsActive, setIsActiveCamera] = useState(false);
+
+  return (
+    <View style={globalStyle.flex}>
+      <Header title={'Home'} />
+
+      {cameraIsActive && <Camera />}
+
+      <View style={style.buttonContainer}>
+        <Button
+          onPress={() => {
+            setIsActiveCamera(true);
+          }}
+        />
+        <Button />
+        <Button />
+      </View>
+    </View>
+  );
 };
 
 export default Home;
