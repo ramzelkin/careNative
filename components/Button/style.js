@@ -8,7 +8,7 @@ import {getFontFamily} from '../../assets/fonts/helper';
 
 const style = StyleSheet.create({
   button: {
-    width: '90%',
+    // width: '90%',
     height: verticalScale(44),
     borderRadius: horizontalScale(50),
     backgroundColor: '#DB1457',
