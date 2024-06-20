@@ -17,12 +17,13 @@ const Home = ({navigation}) => {
 
       <View style={style.buttonContainer}>
         <Button
+          title={'Camera'}
           onPress={() => {
             setIsActiveCamera(true);
           }}
         />
-        <Button />
-        <Button />
+        <Button title={'Choose from library '} />
+        <Button title={'Past text'} onPress={() => {}} />
       </View>
     </View>
   );

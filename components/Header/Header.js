@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {View, Text} from 'react-native';
+import PropTypes from 'prop-types';
 import style from './style';
 
 const Header = props => {
@@ -16,13 +17,36 @@ const Header = props => {
     }
   };
 
+  const alignmentToApply = () => {
+    switch (props.alignment) {
+      case 'center':
+        return style.centeredTitle;
+      case 'left':
+        return style.initialAlignmentTitle;
+      default:
+        return style.initialAlignmentTitle;
+    }
+  };
+
   return (
-    <SafeAreaView>
-      <View>
-        <Text style={stylesToApply()}>{props.title}</Text>
-      </View>
-    </SafeAreaView>
+    <View>
+      <Text style={[stylesToApply(), alignmentToApply()]}>{props.title}</Text>
+    </View>
   );
+};
+
+Header.default = {
+  title: '',
+  type: 1,
+  color: '#1C0D12',
+  alignment: 'left',
+};
+
+Header.propTypes = {
+  title: PropTypes.string,
+  type: PropTypes.number,
+  color: PropTypes.string,
+  alignment: PropTypes.string,
 };
 
 export default Header;
