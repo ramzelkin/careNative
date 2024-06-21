@@ -49,10 +49,10 @@ const Profile = ({navigation}) => {
         </View>
         <View style={style.buttonsConTainer}>
           <View style={style.buttonWrapper}>
-            <Button title={'Edit Profile'} type={2} />
+            <Button title={'Edit Profile'} type={2} onPress={() => {}} />
           </View>
           <View style={style.buttonWrapper}>
-            <Button title={'Refer Friends'} />
+            <Button title={'Refer Friends'} onPress={() => {}} />
           </View>
         </View>
         <View>
@@ -66,7 +66,7 @@ const Profile = ({navigation}) => {
         </View>
       </ScrollView>
       <View>
-        <Button title={'Log out'} type={2} />
+        <Button title={'Log out'} type={2} onPress={() => {}} />
       </View>
     </SafeAreaView>
   );
