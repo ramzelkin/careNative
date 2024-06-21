@@ -64,10 +64,10 @@ const Profile = ({navigation}) => {
             );
           })}
         </View>
-        <View>
-          <Button title={'Log out'} type={2} />
-        </View>
       </ScrollView>
+      <View>
+        <Button title={'Log out'} type={2} />
+      </View>
     </SafeAreaView>
   );
 };
