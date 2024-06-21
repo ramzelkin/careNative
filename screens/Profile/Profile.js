@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView, View, Image, Text} from 'react-native';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 
@@ -19,6 +19,25 @@ const Profile = ({navigation}) => {
         />
         <View style={style.titleContainer}>
           <Header title={'Profile'} type={2} alignment={'center'} />
+        </View>
+      </View>
+      <View>
+        <Image
+          style={style.profileImage}
+          source={require('../../assets/images/profile-image.png')}
+          resizeMode={'contain'}
+        />
+      </View>
+      <View style={style.userInfoContainer}>
+        <Header title={'Samantha Johnson'} type={1} />
+        <Header title={'@samanthajonson'} type={3} color={'#994D66'} />
+      </View>
+      <View style={style.buttonsConTainer}>
+        <View style={style.buttonWrapper}>
+          <Button title={'Edit Profile'} type={2} />
+        </View>
+        <View style={style.buttonWrapper}>
+          <Button title={'Refer Friends'} />
         </View>
       </View>
     </SafeAreaView>

@@ -22,7 +22,7 @@ const Button = props => {
       case 1:
         return style.title1;
       case 2:
-        return style.title1;
+        return style.title2;
       case 3:
         return style.titleBack;
       default:

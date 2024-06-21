@@ -16,7 +16,7 @@ const style = StyleSheet.create({
   title3: {
     fontFamily: getFontFamily('Inter', '600'),
     fontSize: scaleFontSize(16),
-    lineHeight: scaleFontSize(19),
+    lineHeight: scaleFontSize(24),
   },
   centeredTitle: {
     textAlign: 'center',

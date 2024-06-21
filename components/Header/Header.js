@@ -30,7 +30,14 @@ const Header = props => {
 
   return (
     <View>
-      <Text style={[stylesToApply(), alignmentToApply()]}>{props.title}</Text>
+      <Text
+        style={[
+          stylesToApply(),
+          alignmentToApply(),
+          props.color && {color: props.color},
+        ]}>
+        {props.title}
+      </Text>
     </View>
   );
 };
