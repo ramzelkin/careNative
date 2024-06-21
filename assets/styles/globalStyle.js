@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {verticalScale} from './scaling';
 
 const globalStyle = StyleSheet.create({
   backgroundWhite: {
@@ -6,6 +7,10 @@ const globalStyle = StyleSheet.create({
   },
   flex: {
     flex: 1,
+  },
+  headerIndents: {
+    marginTop: verticalScale(29),
+    marginBottom: verticalScale(21),
   },
 });
 

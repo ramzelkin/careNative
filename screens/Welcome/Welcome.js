@@ -10,7 +10,7 @@ import style from './style';
 const Welcome = ({navigation}) => {
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
-      <View style={style.headerContainer}>
+      <View style={globalStyle.headerIndents}>
         <Header title={'Welcome to iCare'} type={2} alignment={'center'} />
       </View>
       <View style={style.textContainer}>
