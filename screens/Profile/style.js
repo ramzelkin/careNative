@@ -29,6 +29,10 @@ const style = StyleSheet.create({
   buttonWrapper: {
     flexBasis: '50%',
   },
+  settingItem: {
+    paddingVertical: verticalScale(16),
+    marginHorizontal: horizontalScale(16),
+  },
 });
 
 export default style;

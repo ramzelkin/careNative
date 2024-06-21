@@ -14,7 +14,7 @@ const style = StyleSheet.create({
     lineHeight: scaleFontSize(23),
   },
   title3: {
-    fontFamily: getFontFamily('Inter', '600'),
+    fontFamily: getFontFamily('Inter', '400'),
     fontSize: scaleFontSize(16),
     lineHeight: scaleFontSize(24),
   },
