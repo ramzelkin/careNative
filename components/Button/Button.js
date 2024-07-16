@@ -11,8 +11,6 @@ const Button = props => {
         return style.button1;
       case 2:
         return style.button2;
-      case 3:
-        return style.buttonBack;
       default:
         return style.button1;
     }
@@ -23,8 +21,6 @@ const Button = props => {
         return style.title1;
       case 2:
         return style.title2;
-      case 3:
-        return style.titleBack;
       default:
         return style.title1;
     }

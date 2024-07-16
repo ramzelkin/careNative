@@ -46,7 +46,6 @@ Header.default = {
   title: '',
   type: 1,
   color: '#1C0D12',
-  alignment: 'left',
 };
 
 Header.propTypes = {

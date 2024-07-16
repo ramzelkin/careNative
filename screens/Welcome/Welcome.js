@@ -11,13 +11,19 @@ const Welcome = ({navigation}) => {
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <View style={globalStyle.headerIndents}>
-        <Header title={'Welcome to iCare'} type={2} alignment={'center'} />
+        <Header
+          title={'Welcome to iCare'}
+          type={2}
+          alignment={'center'}
+          color={'#1C0D12'}
+        />
       </View>
       <View style={style.textContainer}>
         <Header
           title={"We're here to help you find your perfect formula."}
           type={1}
           alignment={'center'}
+          color={'#1C0D12'}
         />
       </View>
       <View style={style.buttonContainer}>

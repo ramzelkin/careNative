@@ -4,9 +4,9 @@ import {scaleFontSize} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   title1: {
-    fontFamily: getFontFamily('Inter', '800'),
-    fontSize: scaleFontSize(22),
-    lineHeight: scaleFontSize(28),
+    // fontFamily: getFontFamily('Inter', '800'),
+    // fontSize: scaleFontSize(22),
+    // lineHeight: scaleFontSize(28),
   },
   title2: {
     fontFamily: getFontFamily('Inter', '800'),
