@@ -1,10 +1,16 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
-import PropTypes from 'prop-types';
 
 import style from './style';
 
-const Button = props => {
+interface Props {
+  type: number;
+  title: string;
+  onPress: () => void;
+  style?: any;
+}
+
+const Button: React.FC<Props> = props => {
   const buttonStylesToApply = () => {
     switch (props.type) {
       case 1:
@@ -27,21 +33,11 @@ const Button = props => {
   };
   return (
     <TouchableOpacity
-      style={[style.button, buttonStylesToApply()]}
+      style={[buttonStylesToApply()]}
       onPress={() => props.onPress()}>
       <Text style={titleStylesToApply()}>{props.title}</Text>
     </TouchableOpacity>
   );
-};
-
-Button.default = {
-  title: '',
-  onPress: () => {},
-};
-
-Button.propTypes = {
-  title: PropTypes.string,
-  onPress: PropTypes.func,
 };
 
 export default Button;

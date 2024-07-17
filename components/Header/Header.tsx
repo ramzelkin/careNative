@@ -1,9 +1,16 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import PropTypes from 'prop-types';
+
 import style from './style';
 
-const Header = props => {
+interface Props {
+  alignment?: string;
+  type: number;
+  color?: string;
+  title: string;
+}
+
+const Header: React.FC<Props> = props => {
   const stylesToApply = () => {
     switch (props.type) {
       case 1:
@@ -40,19 +47,6 @@ const Header = props => {
       </Text>
     </View>
   );
-};
-
-Header.default = {
-  title: '',
-  type: 1,
-  color: '#1C0D12',
-};
-
-Header.propTypes = {
-  title: PropTypes.string,
-  type: PropTypes.number,
-  color: PropTypes.string,
-  alignment: PropTypes.string,
 };
 
 export default Header;

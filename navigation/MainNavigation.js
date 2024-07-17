@@ -1,13 +1,9 @@
 import {Routes} from './Routes';
-import Home from '../screens/Home/Home';
 import {createStackNavigator} from '@react-navigation/stack';
-import {createDrawerNavigator} from '@react-navigation/drawer';
 import Welcome from '../screens/Welcome/Welcome';
 import Profile from '../screens/Profile/Profile';
 
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
-
 // const MainMenuNavigation = () => {
 //   return (
 //     <Drawer.Navigator

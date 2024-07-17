@@ -7,7 +7,11 @@ import {Routes} from '../../navigation/Routes';
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
 
-const Welcome = ({navigation}) => {
+interface Props {
+  navigation: any;
+}
+
+const Welcome: React.FC<Props> = ({navigation}) => {
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <View style={globalStyle.headerIndents}>
@@ -30,6 +34,7 @@ const Welcome = ({navigation}) => {
         <Button
           title={'Start my quiz'}
           style={style.fullWidthButton}
+          type={1}
           onPress={() => {
             navigation.navigate(Routes.Profile);
           }}

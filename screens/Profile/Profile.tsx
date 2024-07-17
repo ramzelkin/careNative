@@ -7,7 +7,11 @@ import BackButton from '../../components/BackButton/BackButton';
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
 
-const Profile = ({navigation}) => {
+interface Props {
+  navigation: any;
+}
+
+const Profile: React.FC<Props> = ({navigation}) => {
   const settingsList = [
     {
       settingId: 1,
@@ -57,19 +61,14 @@ const Profile = ({navigation}) => {
             <Button title={'Edit Profile'} type={2} onPress={() => {}} />
           </View>
           <View style={style.buttonWrapper}>
-            <Button title={'Refer Friends'} onPress={() => {}} />
+            <Button type={1} title={'Refer Friends'} onPress={() => {}} />
           </View>
         </View>
         <View>
           {settingsList.map(item => {
             return (
               <View key={item.name + item.settingId} style={style.settingItem}>
-                <Header
-                  title={item.name}
-                  // type={3}
-                  textStyle={globalStyle.header3}
-                  color={'#1C0D12'}
-                />
+                <Header title={item.name} type={3} color={'#1C0D12'} />
               </View>
             );
           })}
