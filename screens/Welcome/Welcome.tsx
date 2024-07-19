@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
-import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import {Routes} from '../../navigation/Routes';
+import {getHeader1, getHeader2} from '../../compositLayers/Header/getHeader';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
@@ -12,24 +12,16 @@ interface Props {
 }
 
 const Welcome: React.FC<Props> = ({navigation}) => {
+  const header1 = getHeader1('Welcome to iCare', 'center');
+  const header2 = getHeader2(
+    "We're here to help you find your perfect formula.",
+    'center',
+  );
+
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
-      <View style={globalStyle.headerIndents}>
-        <Header
-          title={'Welcome to iCare'}
-          type={2}
-          alignment={'center'}
-          color={'#1C0D12'}
-        />
-      </View>
-      <View style={style.textContainer}>
-        <Header
-          title={"We're here to help you find your perfect formula."}
-          type={1}
-          alignment={'center'}
-          color={'#1C0D12'}
-        />
-      </View>
+      <View style={globalStyle.headerIndents}>{header1}</View>
+      <View style={style.textContainer}>{header2}</View>
       <View style={style.buttonContainer}>
         <Button
           title={'Start my quiz'}

@@ -1,8 +1,12 @@
 import React from 'react';
 import {SafeAreaView, View, Image, ScrollView} from 'react-native';
-import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import BackButton from '../../components/BackButton/BackButton';
+import {
+  getHeader2,
+  getHeader1,
+  getHeader3,
+} from '../../compositLayers/Header/getHeader';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
@@ -12,6 +16,10 @@ interface Props {
 }
 
 const Profile: React.FC<Props> = ({navigation}) => {
+  const pageTitle = getHeader2('Profile', 'center');
+  const profileTitle = getHeader1('Samantha Johnson');
+  const profileNickName = getHeader3('@samanthajonson', '', '#994D66');
+
   const settingsList = [
     {
       settingId: 1,
@@ -36,14 +44,7 @@ const Profile: React.FC<Props> = ({navigation}) => {
               navigation.goBack();
             }}
           />
-          <View style={style.titleContainer}>
-            <Header
-              title={'Profile'}
-              type={2}
-              alignment={'center'}
-              color={'#1C0D12'}
-            />
-          </View>
+          <View style={style.titleContainer}>{pageTitle}</View>
         </View>
         <View>
           <Image
@@ -53,8 +54,8 @@ const Profile: React.FC<Props> = ({navigation}) => {
           />
         </View>
         <View style={style.userInfoContainer}>
-          <Header title={'Samantha Johnson'} type={1} color={'#1C0D12'} />
-          <Header title={'@samanthajonson'} type={3} color={'#994D66'} />
+          {profileTitle}
+          {profileNickName}
         </View>
         <View style={style.buttonsConTainer}>
           <View style={style.buttonWrapper}>
@@ -66,9 +67,11 @@ const Profile: React.FC<Props> = ({navigation}) => {
         </View>
         <View>
           {settingsList.map(item => {
+            const settingsListName = getHeader3(item.name);
+
             return (
               <View key={item.name + item.settingId} style={style.settingItem}>
-                <Header title={item.name} type={3} color={'#1C0D12'} />
+                {settingsListName}
               </View>
             );
           })}

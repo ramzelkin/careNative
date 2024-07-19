@@ -4,9 +4,9 @@ import {scaleFontSize} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   title1: {
-    // fontFamily: getFontFamily('Inter', '800'),
-    // fontSize: scaleFontSize(22),
-    // lineHeight: scaleFontSize(28),
+    fontFamily: getFontFamily('Inter', '800'),
+    fontSize: scaleFontSize(22),
+    lineHeight: scaleFontSize(28),
   },
   title2: {
     fontFamily: getFontFamily('Inter', '800'),
@@ -17,12 +17,6 @@ const style = StyleSheet.create({
     fontFamily: getFontFamily('Inter', '400'),
     fontSize: scaleFontSize(16),
     lineHeight: scaleFontSize(24),
-  },
-  centeredTitle: {
-    textAlign: 'center',
-  },
-  initialAlignmentTitle: {
-    textAlign: 'left',
   },
 });
 
