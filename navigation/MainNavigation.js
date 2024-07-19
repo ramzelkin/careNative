@@ -1,3 +1,4 @@
+import React from 'react';
 import {Routes} from './Routes';
 import {createStackNavigator} from '@react-navigation/stack';
 import Welcome from '../screens/Welcome/Welcome';

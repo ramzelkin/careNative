@@ -1,4 +1,4 @@
-export const Routes = {
+export const Routes: {[key: string]: string} = {
   Welcome: 'Welcome',
   Profile: 'Profile',
   Home: 'Home',

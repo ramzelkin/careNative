@@ -11,7 +11,8 @@ const guidelineBaseWidth = () => {
   }
   return 350;
 };
-const horizontalScale = size => (width / guidelineBaseWidth()) * size;
+const horizontalScale = (size: number): number =>
+  (width / guidelineBaseWidth()) * size;
 
 const guidelineBaseHeight = () => {
   if (isSmall) {
@@ -22,7 +23,8 @@ const guidelineBaseHeight = () => {
   return 680;
 };
 
-const verticalScale = size => (height / guidelineBaseHeight()) * size;
+const verticalScale = (size: number): number =>
+  (height / guidelineBaseHeight()) * size;
 
 const guidelineBaseFonts = () => {
   if (width > 410) {
@@ -31,6 +33,7 @@ const guidelineBaseFonts = () => {
   return 400;
 };
 
-const scaleFontSize = size => Math.round(width / guidelineBaseFonts()) * size;
+const scaleFontSize = (size: number): number =>
+  Math.round(width / guidelineBaseFonts()) * size;
 
 export {horizontalScale, verticalScale, scaleFontSize};
