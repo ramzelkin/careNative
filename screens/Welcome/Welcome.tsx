@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
-import Button from '../../components/Button/Button';
 import {Routes} from '../../navigation/Routes';
-import {getHeader1, getHeader2} from '../../compositLayers/Header/getHeader';
+import {getHeader1, getHeader2} from '../../compositeLayers/Header/getHeader';
+import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
@@ -12,26 +12,20 @@ interface Props {
 }
 
 const Welcome: React.FC<Props> = ({navigation}) => {
-  const header1 = getHeader1('Welcome to iCare', 'center');
-  const header2 = getHeader2(
+  const pageTitle = getHeader1('Welcome to iCare', 'center');
+  const contentTitle = getHeader2(
     "We're here to help you find your perfect formula.",
     'center',
   );
+  const button = getPrimaryButton('Start my quiz', () => {
+    navigation.navigate(Routes.Profile);
+  });
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
-      <View style={globalStyle.headerIndents}>{header1}</View>
-      <View style={style.textContainer}>{header2}</View>
-      <View style={style.buttonContainer}>
-        <Button
-          title={'Start my quiz'}
-          style={style.fullWidthButton}
-          type={1}
-          onPress={() => {
-            navigation.navigate(Routes.Profile);
-          }}
-        />
-      </View>
+      <View style={globalStyle.headerIndents}>{pageTitle}</View>
+      <View style={style.textContainer}>{contentTitle}</View>
+      <View style={style.buttonContainer}>{button}</View>
     </SafeAreaView>
   );
 };

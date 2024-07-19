@@ -1,12 +1,15 @@
 import React from 'react';
 import {SafeAreaView, View, Image, ScrollView} from 'react-native';
-import Button from '../../components/Button/Button';
 import BackButton from '../../components/BackButton/BackButton';
 import {
   getHeader2,
   getHeader1,
   getHeader3,
-} from '../../compositLayers/Header/getHeader';
+} from '../../compositeLayers/Header/getHeader';
+import {
+  getPrimaryButton,
+  getSecondaryButton,
+} from '../../compositeLayers/Button/getButton';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
@@ -19,6 +22,9 @@ const Profile: React.FC<Props> = ({navigation}) => {
   const pageTitle = getHeader2('Profile', 'center');
   const profileTitle = getHeader1('Samantha Johnson');
   const profileNickName = getHeader3('@samanthajonson', '', '#994D66');
+  const buttonEdit = getSecondaryButton('Edit Profile', () => {});
+  const buttonRefer = getPrimaryButton('Refer Friends', () => {});
+  const buttonLogOut = getSecondaryButton('Log Out', () => {});
 
   const settingsList = [
     {
@@ -58,12 +64,8 @@ const Profile: React.FC<Props> = ({navigation}) => {
           {profileNickName}
         </View>
         <View style={style.buttonsConTainer}>
-          <View style={style.buttonWrapper}>
-            <Button title={'Edit Profile'} type={2} onPress={() => {}} />
-          </View>
-          <View style={style.buttonWrapper}>
-            <Button type={1} title={'Refer Friends'} onPress={() => {}} />
-          </View>
+          <View style={style.buttonWrapper}>{buttonEdit}</View>
+          <View style={style.buttonWrapper}>{buttonRefer}</View>
         </View>
         <View>
           {settingsList.map(item => {
@@ -76,9 +78,7 @@ const Profile: React.FC<Props> = ({navigation}) => {
             );
           })}
         </View>
-        <View>
-          <Button title={'Log out'} type={2} onPress={() => {}} />
-        </View>
+        <View>{buttonLogOut}</View>
       </ScrollView>
     </SafeAreaView>
   );

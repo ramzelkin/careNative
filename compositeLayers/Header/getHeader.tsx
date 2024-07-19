@@ -20,8 +20,8 @@ export const getHeader1 = (
 
 export const getHeader2 = (
   title: string,
-  alignment?: string,
-  color?: string,
+  alignment: string = 'left',
+  color: string = '#1C0D12',
 ): JSX.Element => {
   return (
     <Header
