@@ -3,6 +3,7 @@ import {Routes} from './Routes';
 import {createStackNavigator} from '@react-navigation/stack';
 import Welcome from '../screens/Welcome/Welcome';
 import Profile from '../screens/Profile/Profile';
+import ChooseOption from '../screens/ChooseOption/ChooseOption';
 
 const Stack = createStackNavigator();
 // const MainMenuNavigation = () => {
@@ -23,15 +24,15 @@ const MainNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        header: () => {
-          null;
+        header: (): React.ReactNode => {
+          return null;
         },
         headerShown: false,
       }}
       initialRouteName={Routes.Home}>
       <Stack.Screen name={'Welcome'} component={Welcome} />
       <Stack.Screen name={'Profile'} component={Profile} />
-      {/* <Stack.Screen name={'IngredientsText'} component={IngredientsText } /> */}
+      <Stack.Screen name={'ChooseOption'} component={ChooseOption} />
     </Stack.Navigator>
   );
 };

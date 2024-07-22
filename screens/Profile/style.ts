@@ -21,6 +21,7 @@ const style = StyleSheet.create({
   },
   userInfoContainer: {
     marginLeft: horizontalScale(16),
+    marginBottom: verticalScale(16),
   },
   buttonsConTainer: {
     flexDirection: 'row',

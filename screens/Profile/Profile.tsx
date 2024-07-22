@@ -10,6 +10,8 @@ import {
   getPrimaryButton,
   getSecondaryButton,
 } from '../../compositeLayers/Button/getButton';
+import {useSelector} from 'react-redux';
+import {User} from '../../redux/reducers/User';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
@@ -18,10 +20,16 @@ interface Props {
   navigation: any;
 }
 
+interface RootState {
+  user: User;
+}
+
 const Profile: React.FC<Props> = ({navigation}) => {
+  const user = useSelector((state: RootState) => state.user);
+
   const pageTitle = getHeader2('Profile', 'center');
-  const profileTitle = getHeader1('Samantha Johnson');
-  const profileNickName = getHeader3('@samanthajonson', '', '#994D66');
+  const profileTitle = getHeader1(user.firstName + ' ' + user.lastName);
+  const profileNickName = getHeader3(user.nickName, '', '#994D66');
   const buttonEdit = getSecondaryButton('Edit Profile', () => {});
   const buttonRefer = getPrimaryButton('Refer Friends', () => {});
   const buttonLogOut = getSecondaryButton('Log Out', () => {});

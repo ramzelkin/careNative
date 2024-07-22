@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* myCareNativeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myCareNativeTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-myCareNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-myCareNative.a */; };
-		12B5A01F1AA44C3594D8C1F9 /* helper.js in Resources */ = {isa = PBXBuildFile; fileRef = E203C835556C4BFC8E98A5B8 /* helper.js */; };
+		12B5A01F1AA44C3594D8C1F9 /* helper.ts in Resources */ = {isa = PBXBuildFile; fileRef = E203C835556C4BFC8E98A5B8 /* helper.ts */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -65,7 +65,7 @@
 		A317FEA08C5F4E88A4F9D162 /* Inter-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Light.ttf"; path = "../assets/fonts/Inter-Light.ttf"; sourceTree = "<group>"; };
 		C0E5E208652A47A6BE04DE4E /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraLight.ttf"; path = "../assets/fonts/Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
 		D5C43B962C4846AFA40B0DAF /* Inter-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Black.ttf"; path = "../assets/fonts/Inter-Black.ttf"; sourceTree = "<group>"; };
-		E203C835556C4BFC8E98A5B8 /* helper.js */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = helper.js; path = ../assets/fonts/helper.js; sourceTree = "<group>"; };
+		E203C835556C4BFC8E98A5B8 /* helper.ts */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = helper.ts; path = ../assets/fonts/helper.ts; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -175,7 +175,7 @@
 				8CE7BB6862F548728751C8DD /* Inter-Regular.ttf */,
 				32392208243B4E888D719B4D /* Inter-SemiBold.ttf */,
 				355330A5F5AB492F9E5E1C50 /* Inter-Thin.ttf */,
-				E203C835556C4BFC8E98A5B8 /* helper.js */,
+				E203C835556C4BFC8E98A5B8 /* helper.ts */,
 			);
 			name = Resources;
 			path = "";
@@ -297,7 +297,7 @@
 				E3435ED1ADA343FB8FDDE3B4 /* Inter-Regular.ttf in Resources */,
 				8B0C081FC56342DB890D5B83 /* Inter-SemiBold.ttf in Resources */,
 				E17675B14BEC46538D329077 /* Inter-Thin.ttf in Resources */,
-				12B5A01F1AA44C3594D8C1F9 /* helper.js in Resources */,
+				12B5A01F1AA44C3594D8C1F9 /* helper.ts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
