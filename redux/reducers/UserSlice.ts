@@ -1,12 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-export interface User {
-  firstName: string;
-  lastName: string;
-  nickName: string;
-  userId: 1;
-}
-
 const initialState = {
   firstName: 'Samantha',
   lastName: 'Johnson',
@@ -14,7 +7,7 @@ const initialState = {
   userId: 1,
 };
 
-export const User = createSlice({
+const UserSlice = createSlice({
   name: 'user',
   initialState: initialState,
   reducers: {
@@ -24,5 +17,5 @@ export const User = createSlice({
   },
 });
 
-export const {updateFirstName} = User.actions;
-export default User.reducer;
+export const {updateFirstName} = UserSlice.actions;
+export default UserSlice.reducer;

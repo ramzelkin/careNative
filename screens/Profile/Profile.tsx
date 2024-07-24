@@ -11,7 +11,7 @@ import {
   getSecondaryButton,
 } from '../../compositeLayers/Button/getButton';
 import {useSelector} from 'react-redux';
-import {User} from '../../redux/reducers/User';
+import {User} from '../../entities/User';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';

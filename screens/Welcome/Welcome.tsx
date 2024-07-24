@@ -18,7 +18,7 @@ const Welcome: React.FC<Props> = ({navigation}) => {
     'center',
   );
   const button = getPrimaryButton('Start my quiz', () => {
-    navigation.navigate(Routes.Profile);
+    navigation.navigate(Routes.ChooseOption);
   });
 
   return (
