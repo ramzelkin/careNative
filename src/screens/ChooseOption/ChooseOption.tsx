@@ -19,21 +19,22 @@ interface ChooseOptionNavigation {
 
 interface Props {
   navigation: ChooseOptionNavigation;
-  // controller: ChooseOptionController;
 }
 
 const ChooseOption: React.FC<Props> = ({navigation}) => {
   const controller = useRef(new ChooseOptionFactory().createController());
   const pageTitle = getHeader2('Please choose an option', 'center');
+
   const cameraButton = getPrimaryButton('Camera', () => {
     controller.current.checkPermissions();
   });
-  const galleryButton = getSecondaryButton('Gallery', () => {});
-  const directInputButton = getSecondaryButton('Direct Input', () => {});
 
   controller.current.onPermissionsGranted = () => {
     navigation.navigate(Routes.Permissions);
   };
+
+  const galleryButton = getSecondaryButton('Gallery', () => {});
+  const directInputButton = getSecondaryButton('Direct Input', () => {});
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
