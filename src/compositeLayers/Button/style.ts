@@ -3,8 +3,8 @@ import {
   horizontalScale,
   scaleFontSize,
   verticalScale,
-} from '../../assets/styles/scaling';
-import {getFontFamily} from '../../assets/fonts/helper';
+} from '../../utils/scaling';
+import {getFontFamily} from '../../utils/getFontFamily';
 
 const style = StyleSheet.create({
   primaryButton: {

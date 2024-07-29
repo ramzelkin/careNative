@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Welcome from '../screens/Welcome/Welcome';
 import Profile from '../screens/Profile/Profile';
 import ChooseOption from '../screens/ChooseOption/ChooseOption';
+import Permissions from '../screens/Permissions/Permissions';
 
 const Stack = createStackNavigator();
 // const MainMenuNavigation = () => {
@@ -29,10 +30,11 @@ const MainNavigation = () => {
         },
         headerShown: false,
       }}
-      initialRouteName={Routes.Home}>
+      initialRouteName={Routes.Welcome}>
       <Stack.Screen name={'Welcome'} component={Welcome} />
       <Stack.Screen name={'Profile'} component={Profile} />
       <Stack.Screen name={'ChooseOption'} component={ChooseOption} />
+      <Stack.Screen name={'Permissions'} component={Permissions} />
     </Stack.Navigator>
   );
 };

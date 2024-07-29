@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {horizontalScale, verticalScale} from '../../assets/styles/scaling';
+import {horizontalScale, verticalScale} from '../../utils/scaling';
 
 const style = StyleSheet.create({
   title: {

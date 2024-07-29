@@ -48,7 +48,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs access to your Camera.</string>
+	<string>App required camera access to take a photo</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
 	<key>UIAppFonts</key>
@@ -63,5 +63,7 @@
 		<string>Inter-SemiBold.ttf</string>
 		<string>Inter-Thin.ttf</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>App required camera access to add a photo from library</string>
 </dict>
 </plist>

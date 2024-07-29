@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {scaleFontSize} from '../../assets/styles/scaling';
-import {getFontFamily} from '../../assets/fonts/helper';
+import {scaleFontSize} from '../../utils/scaling';
+import {getFontFamily} from '../../utils/getFontFamily';
 
 const style = StyleSheet.create({
   buttonBack: {

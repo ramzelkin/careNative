@@ -13,7 +13,7 @@ import {
 import {useSelector} from 'react-redux';
 import {User} from '../../entities/User';
 
-import globalStyle from '../../assets/styles/globalStyle';
+import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
 
 interface Props {
@@ -51,7 +51,7 @@ const Profile: React.FC<Props> = ({navigation}) => {
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={[globalStyle.headerIndents, style.headerContainer]}>
+        <View style={[globalStyle.headerIndents, globalStyle.headerContainer]}>
           <BackButton
             title={'Back'}
             onPress={() => {
@@ -63,7 +63,7 @@ const Profile: React.FC<Props> = ({navigation}) => {
         <View>
           <Image
             style={style.profileImage}
-            source={require('../../assets/images/profile-image.png')}
+            source={require('../../../assets/images/profile-image.png')}
             resizeMode={'contain'}
           />
         </View>

@@ -36,10 +36,6 @@
     {
       "path": "assets/fonts/Inter-Thin.ttf",
       "sha1": "757805e615c974756646e54ceff8e409d5c47207"
-    },
-    {
-      "path": "assets/fonts/helper.ts",
-      "sha1": "29187ca505732be9c6a6adc586355f55c5f087fc"
     }
   ]
 }
