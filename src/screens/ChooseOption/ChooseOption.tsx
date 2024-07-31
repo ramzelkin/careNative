@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import BackButton from '../../components/BackButton/BackButton';
-import {Routes} from '../../navigation/Routes';
+// import {Routes} from '../../navigation/Routes';
 import {getHeader2} from '../../compositeLayers/Header/getHeader';
 import {
   getPrimaryButton,
@@ -26,14 +26,16 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
   const pageTitle = getHeader2('Please choose an option', 'center');
 
   const cameraButton = getPrimaryButton('Camera', () => {
-    controller.current.checkPermissions();
+    controller.current.setupCamera();
   });
 
-  controller.current.onPermissionsGranted = () => {
-    navigation.navigate(Routes.Permissions);
-  };
+  // controller.current.onPermissionsDenied = () => {
+  //   navigation.navigate(Routes.Permissions);
+  // };
 
-  const galleryButton = getSecondaryButton('Gallery', () => {});
+  const galleryButton = getSecondaryButton('Gallery', () => {
+    controller.current.setupImageLibrary();
+  });
   const directInputButton = getSecondaryButton('Direct Input', () => {});
 
   return (
