@@ -2,22 +2,26 @@ import * as ImagePicker from 'react-native-image-picker';
 import {MediaService} from './MediaService';
 
 export class ImagePickerService implements MediaService {
+  private processResponse(response: any, callback: any) {
+    if (
+      response.assets &&
+      response.assets.length > 0 &&
+      response.assets[0].uri
+    ) {
+      let uri = response.assets[0].uri;
+      callback(uri, undefined);
+    } else if (response.errorCode) {
+      callback(undefined, response.errorCode);
+    } else {
+      callback(undefined, undefined);
+    }
+  }
+
   launchMedia(callback: (imageURI?: string, errorCode?: string) => void) {
     ImagePicker.launchImageLibrary(new Options()).then(
       (response: ImagePicker.ImagePickerResponse) => {
-        if (
-          response.assets &&
-          response.assets.length > 0 &&
-          response.assets[0].uri
-        ) {
-          let uri = response.assets[0].uri;
-
-          callback(uri, undefined);
-        } else if (response.errorCode) {
-          callback(undefined, response.errorCode);
-        } else {
-          callback(undefined, undefined);
-        }
+        this.processResponse(response, callback);
+        callback();
       },
     );
   }
@@ -25,19 +29,8 @@ export class ImagePickerService implements MediaService {
   launchCamera(callback: (imageURI?: string, errorCode?: string) => void) {
     ImagePicker.launchCamera(new Options()).then(
       (response: ImagePicker.ImagePickerResponse) => {
-        if (
-          response.assets &&
-          response.assets.length > 0 &&
-          response.assets[0].uri
-        ) {
-          let uri = response.assets[0].uri;
-
-          callback(uri, undefined);
-        } else if (response.errorCode) {
-          callback(undefined, response.errorCode);
-        } else {
-          callback(undefined, undefined);
-        }
+        this.processResponse(response, callback);
+        callback();
       },
     );
   }

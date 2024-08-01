@@ -23,29 +23,29 @@ export class ChooseOptionController {
     this.mediaService = mediaService;
   }
 
+  private processMediaServiceResponse = (
+    imageURI?: string,
+    errorCode?: string,
+  ): void => {
+    if (imageURI) {
+      console.log(imageURI);
+      // process image
+    } else if (errorCode) {
+      // process error
+    } else {
+      // do nothing, user canceled
+    }
+  };
+
   onPermissionsPhotoLibraryGranted = (): void => {
     this.mediaService.launchMedia((imageURI?: string, errorCode?: string) => {
-      if (imageURI) {
-        console.log(imageURI);
-        // process image
-      } else if (errorCode) {
-        // process error
-      } else {
-        // do nothing, user canceled
-      }
+      this.processMediaServiceResponse(imageURI, errorCode);
     });
   };
 
   onPermissionsCameraGranted = (): void => {
     this.mediaService.launchCamera((imageURI?: string, errorCode?: string) => {
-      if (imageURI) {
-        console.log(imageURI);
-        // process image
-      } else if (errorCode) {
-        // process error
-      } else {
-        // do nothing, user canceled
-      }
+      this.processMediaServiceResponse(imageURI, errorCode);
     });
   };
 
@@ -64,8 +64,6 @@ export class ChooseOptionController {
     onBlocked: () => void = () => {},
   ) {
     verify((status: string) => {
-      console.log('status');
-      console.log(status);
       switch (status) {
         case PermissionStatus.granted:
           onGranted();
