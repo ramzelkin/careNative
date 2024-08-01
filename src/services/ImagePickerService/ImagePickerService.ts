@@ -21,6 +21,26 @@ export class ImagePickerService implements MediaService {
       },
     );
   }
+
+  launchCamera(callback: (imageURI?: string, errorCode?: string) => void) {
+    ImagePicker.launchCamera(new Options()).then(
+      (response: ImagePicker.ImagePickerResponse) => {
+        if (
+          response.assets &&
+          response.assets.length > 0 &&
+          response.assets[0].uri
+        ) {
+          let uri = response.assets[0].uri;
+
+          callback(uri, undefined);
+        } else if (response.errorCode) {
+          callback(undefined, response.errorCode);
+        } else {
+          callback(undefined, undefined);
+        }
+      },
+    );
+  }
 }
 
 class Options implements ImagePicker.ImageLibraryOptions {

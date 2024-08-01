@@ -36,6 +36,19 @@ export class ChooseOptionController {
     });
   };
 
+  onPermissionsCameraGranted = (): void => {
+    this.mediaService.launchCamera((imageURI?: string, errorCode?: string) => {
+      if (imageURI) {
+        console.log(imageURI);
+        // process image
+      } else if (errorCode) {
+        // process error
+      } else {
+        // do nothing, user canceled
+      }
+    });
+  };
+
   onPermissionsDenied = (): void => {
     this.settingsService.openSettings();
   };
@@ -51,6 +64,8 @@ export class ChooseOptionController {
     onBlocked: () => void = () => {},
   ) {
     verify((status: string) => {
+      console.log('status');
+      console.log(status);
       switch (status) {
         case PermissionStatus.granted:
           onGranted();
@@ -72,7 +87,17 @@ export class ChooseOptionController {
   }
 
   setupCamera() {
-    // this.checkPermission(this.cameraPermissionsService, () => {});
+    this.checkPermission(
+      this.cameraPermissionsService.checkPermission,
+      this.onPermissionsCameraGranted,
+      () => {
+        this.checkPermission(
+          this.cameraPermissionsService.requestPermission,
+          this.onPermissionsCameraGranted,
+        );
+      },
+      this.onPermissionsBlocked,
+    );
   }
 
   setupImageLibrary() {
