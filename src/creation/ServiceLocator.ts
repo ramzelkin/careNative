@@ -1,18 +1,17 @@
-import {Platform} from 'react-native';
 import {PermissionsService} from '../services/PermissionsService/PermissionsService';
-import {IOSPermissionsService} from '../services/PermissionsService/IOSPermissionsService';
+import {MediaService} from '../services/ImagePickerService/MediaService';
+import {ImagePickerService} from '../services/ImagePickerService/ImagePickerService';
+import {PhotoLibraryPermissionsService} from '../services/PermissionsService/PhotoLibraryPermissionsService';
 
 export class ServiceLocator {
   static #instance: ServiceLocator;
 
   permissionsService: PermissionsService;
+  mediaService: MediaService;
 
   private constructor() {
-    if (Platform.OS === 'ios') {
-      this.permissionsService = new IOSPermissionsService();
-    } else {
-      this.permissionsService = new IOSPermissionsService();
-    }
+    this.permissionsService = new PhotoLibraryPermissionsService();
+    this.mediaService = new ImagePickerService();
   }
 
   public static get instance(): ServiceLocator {
