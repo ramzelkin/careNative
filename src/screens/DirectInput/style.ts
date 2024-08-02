@@ -1,9 +1,12 @@
 import {StyleSheet} from 'react-native';
-import {horizontalScale} from '../../utils/scaling';
+import {horizontalScale, verticalScale} from '../../utils/scaling';
 
 const style = StyleSheet.create({
-  inputContainer: {
+  elementsContainer: {
     marginHorizontal: horizontalScale(16),
+  },
+  buttonContainer: {
+    marginVertical: verticalScale(20),
   },
 });
 

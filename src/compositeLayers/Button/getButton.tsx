@@ -30,3 +30,18 @@ export const getSecondaryButton = (
     />
   );
 };
+
+export const getPrimaryWaitingButton = (
+  title: string,
+  onPress: () => void,
+): JSX.Element => {
+  return (
+    <Button
+      // disabled={true}
+      title={title}
+      style={style.secondaryButton}
+      textStyle={style.title2}
+      onPress={onPress}
+    />
+  );
+};

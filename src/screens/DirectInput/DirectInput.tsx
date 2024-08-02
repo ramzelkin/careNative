@@ -6,6 +6,7 @@ import Input from '../../components/Input/Input';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
+import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
 
 interface Props {
   navigation: any;
@@ -13,6 +14,7 @@ interface Props {
 
 const DirectInput: React.FC<Props> = ({navigation}) => {
   const [value, setValue] = useState('');
+  const continueButton = getPrimaryButton('Continue', () => {});
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
@@ -25,7 +27,7 @@ const DirectInput: React.FC<Props> = ({navigation}) => {
             }}
           />
         </View>
-        <View style={style.inputContainer}>
+        <View style={style.elementsContainer}>
           <Input
             multiline={true}
             placeholder={'Enter ingredients'}
@@ -33,6 +35,7 @@ const DirectInput: React.FC<Props> = ({navigation}) => {
               setValue(text);
             }}
           />
+          <View style={style.buttonContainer}>{continueButton}</View>
         </View>
       </ScrollView>
     </SafeAreaView>
