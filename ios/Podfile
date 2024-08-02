@@ -46,6 +46,9 @@ end
 
 target 'myCareNative' do
   config = use_native_modules!
+  
+  # To recognize Latin script
+  pod 'GoogleMLKit/TextRecognition', '3.2.0'
 
   use_react_native!(
     :path => config[:reactNativePath],
