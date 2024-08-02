@@ -2,7 +2,10 @@ import * as ImagePicker from 'react-native-image-picker';
 import {MediaService} from './MediaService';
 
 export class ImagePickerService implements MediaService {
-  private processResponse(response: any, callback: any) {
+  private processResponse(
+    response: ImagePicker.ImagePickerResponse,
+    callback: (imageURI?: string, errorCode?: string) => void,
+  ) {
     if (
       response.assets &&
       response.assets.length > 0 &&

@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import BackButton from '../../components/BackButton/BackButton';
-// import {Routes} from '../../navigation/Routes';
 import {getHeader2} from '../../compositeLayers/Header/getHeader';
 import {
   getPrimaryButton,
