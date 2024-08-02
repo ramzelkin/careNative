@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
+import {Routes} from '../../navigation/Routes';
 import BackButton from '../../components/BackButton/BackButton';
 import {getHeader2} from '../../compositeLayers/Header/getHeader';
 import {
@@ -35,7 +36,9 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
   const galleryButton = getSecondaryButton('Gallery', () => {
     controller.current.setupImageLibrary();
   });
-  const directInputButton = getSecondaryButton('Direct Input', () => {});
+  const directInputButton = getSecondaryButton('Direct Input', () => {
+    navigation.navigate(Routes.DirectInput);
+  });
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
