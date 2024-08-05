@@ -6,7 +6,7 @@ const style = StyleSheet.create({
     marginHorizontal: horizontalScale(16),
   },
   buttonContainer: {
-    marginVertical: verticalScale(20),
+    marginTop: verticalScale(20),
   },
 });
 

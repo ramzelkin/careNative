@@ -14,7 +14,11 @@ interface Props {
 
 const DirectInput: React.FC<Props> = ({navigation}) => {
   const [value, setValue] = useState('');
-  const continueButton = getPrimaryButton('Continue', () => {});
+  const continueButton = getPrimaryButton(
+    'Continue',
+    () => {},
+    value.length < 3,
+  );
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
@@ -35,8 +39,8 @@ const DirectInput: React.FC<Props> = ({navigation}) => {
               setValue(text);
             }}
           />
-          <View style={style.buttonContainer}>{continueButton}</View>
         </View>
+        <View style={style.buttonContainer}>{continueButton}</View>
       </ScrollView>
     </SafeAreaView>
   );

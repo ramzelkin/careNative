@@ -6,13 +6,15 @@ import style from './style';
 export const getPrimaryButton = (
   title: string,
   onPress: () => void,
+  isDisabled?: boolean,
 ): JSX.Element => {
   return (
     <Button
       title={title}
-      style={style.primaryButton}
+      style={[style.primaryButton, isDisabled && style.disabled]}
       textStyle={style.title1}
       onPress={onPress}
+      isDisabled={isDisabled}
     />
   );
 };
@@ -23,21 +25,6 @@ export const getSecondaryButton = (
 ): JSX.Element => {
   return (
     <Button
-      title={title}
-      style={style.secondaryButton}
-      textStyle={style.title2}
-      onPress={onPress}
-    />
-  );
-};
-
-export const getPrimaryWaitingButton = (
-  title: string,
-  onPress: () => void,
-): JSX.Element => {
-  return (
-    <Button
-      // disabled={true}
       title={title}
       style={style.secondaryButton}
       textStyle={style.title2}

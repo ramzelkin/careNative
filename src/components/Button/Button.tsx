@@ -6,11 +6,15 @@ interface Props {
   onPress: () => void;
   style?: any;
   textStyle?: any;
+  isDisabled?: boolean;
 }
 
 const Button: React.FC<Props> = props => {
   return (
-    <TouchableOpacity style={props.style} onPress={() => props.onPress()}>
+    <TouchableOpacity
+      disabled={props.isDisabled}
+      style={[props.style]}
+      onPress={() => props.onPress()}>
       <Text style={props.textStyle}>{props.title}</Text>
     </TouchableOpacity>
   );
