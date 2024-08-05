@@ -1,22 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import BackButton from '../../components/BackButton/BackButton';
 import Input from '../../components/Input/Input';
+import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
+import {DirectInputFactory} from '../../creation/DirectInputFactory';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
-import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
 
 interface Props {
   navigation: any;
 }
 
 const DirectInput: React.FC<Props> = ({navigation}) => {
+  const controller = useRef(new DirectInputFactory().createController());
   const [value, setValue] = useState('');
   const continueButton = getPrimaryButton(
     'Continue',
-    () => {},
+    () => {
+      controller.current.getIngredients(value);
+    },
     value.length < 3,
   );
 
