@@ -4,6 +4,8 @@ import {
   PermissionStatus,
 } from '../../services/PermissionsService/PermissionsService';
 import {SettingsService} from '../../services/SettingsService/SettingsService';
+import { NativeModules } from 'react-native';
+const { TextRecognition } = NativeModules;
 
 export class ChooseOptionController {
   private cameraPermissionsService: PermissionsService;
@@ -28,6 +30,11 @@ export class ChooseOptionController {
     errorCode?: string,
   ): void => {
     if (imageURI) {
+      let recognizer = new TextRecognition();
+
+      recognizer.recognizeText(imageURI, (string[]?, Error?) => {
+        
+      });
       console.log(imageURI);
       // process image
     } else if (errorCode) {

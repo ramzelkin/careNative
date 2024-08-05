@@ -8,6 +8,7 @@
 import Foundation
 import MLKitTextRecognition
 import MLKitVision
+import RCTTypeSafety
 
 final class TextRecognition {
   
@@ -17,8 +18,10 @@ final class TextRecognition {
     case unexpectedNil
   }
   
+  
+  
   func recognizeText(on imageURL: String, completion: @escaping ([String]?, Swift.Error?) -> Void) {
-    
+    let a =
     // When using Latin script recognition SDK
     let latinOptions = TextRecognizerOptions()
     let latinTextRecognizer = TextRecognizer.textRecognizer(options: latinOptions)
