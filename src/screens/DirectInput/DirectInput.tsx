@@ -31,7 +31,6 @@ const DirectInput: React.FC<Props> = ({navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[globalStyle.headerIndents, globalStyle.headerContainer]}>
           <BackButton
-            title={'Back'}
             onPress={() => {
               navigation.goBack();
             }}
