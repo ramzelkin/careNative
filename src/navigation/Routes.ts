@@ -4,4 +4,5 @@ export const Routes: {[key: string]: string} = {
   ChooseOption: 'ChooseOption',
   Permissions: 'Permissions',
   DirectInput: 'DirectInput',
+  Ingredients: 'Ingredients',
 };

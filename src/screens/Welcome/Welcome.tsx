@@ -1,10 +1,7 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {Routes} from '../../navigation/Routes';
-import {
-  getHeader1,
-  getHeader2,
-} from '../../compositeLayers/Header/getHeader';
+import {getHeader1, getHeader2} from '../../compositeLayers/Header/getHeader';
 import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
 
 import globalStyle from '../../../assets/styles/globalStyle';

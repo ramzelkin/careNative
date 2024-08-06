@@ -6,6 +6,7 @@ import Profile from '../screens/Profile/Profile';
 import ChooseOption from '../screens/ChooseOption/ChooseOption';
 import Permissions from '../screens/Permissions/Permissions';
 import DirectInput from '../screens/DirectInput/DirectInput';
+import Ingredients from '../screens/Ingredients/Ingredients';
 
 const Stack = createStackNavigator();
 // const MainMenuNavigation = () => {
@@ -37,6 +38,7 @@ const MainNavigation = () => {
       <Stack.Screen name={'ChooseOption'} component={ChooseOption} />
       <Stack.Screen name={'Permissions'} component={Permissions} />
       <Stack.Screen name={'DirectInput'} component={DirectInput} />
+      <Stack.Screen name={'Ingredients'} component={Ingredients} />
     </Stack.Navigator>
   );
 };

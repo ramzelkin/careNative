@@ -8,6 +8,7 @@ import {DirectInputFactory} from '../../creation/DirectInputFactory';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
+import {Routes} from '../../navigation/Routes';
 
 interface Props {
   navigation: any;
@@ -20,6 +21,7 @@ const DirectInput: React.FC<Props> = ({navigation}) => {
     'Continue',
     () => {
       controller.current.getIngredients(value);
+      navigation.navigate(Routes.Ingredients);
     },
     value.length < 3,
   );
