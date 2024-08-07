@@ -37,6 +37,9 @@ const style = StyleSheet.create({
     fontFamily: getFontFamily('Inter', '800'),
     fontSize: scaleFontSize(14),
   },
+  disabled: {
+    opacity: 0.5,
+  },
 });
 
 export default style;

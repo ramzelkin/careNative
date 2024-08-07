@@ -6,13 +6,15 @@ import style from './style';
 export const getPrimaryButton = (
   title: string,
   onPress: () => void,
+  isDisabled?: boolean,
 ): JSX.Element => {
   return (
     <Button
       title={title}
-      style={style.primaryButton}
+      style={[style.primaryButton, isDisabled && style.disabled]}
       textStyle={style.title1}
       onPress={onPress}
+      isDisabled={isDisabled}
     />
   );
 };
