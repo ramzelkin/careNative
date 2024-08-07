@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Welcome: React.FC<Props> = ({navigation}) => {
-  const pageTitle = getHeader1('Welcome to iCare', 'center');
+  const screenTitle = getHeader1('Welcome to iCare', 'center');
   const contentTitle = getHeader2(
     "We're here to help you find your perfect formula.",
     'center',
@@ -23,9 +23,11 @@ const Welcome: React.FC<Props> = ({navigation}) => {
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
-      <View style={globalStyle.headerIndents}>{pageTitle}</View>
+      <View style={globalStyle.headerIndents}>{screenTitle}</View>
       <View style={style.textContainer}>{contentTitle}</View>
-      <View style={style.buttonContainer}>{button}</View>
+      <View style={globalStyle.contentMargins}>
+        <View style={style.buttonContainer}>{button}</View>
+      </View>
     </SafeAreaView>
   );
 };

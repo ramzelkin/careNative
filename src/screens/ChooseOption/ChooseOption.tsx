@@ -50,10 +50,12 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
             }}
           />
         </View>
-        <View style={style.pageTitleContainer}>{pageTitle}</View>
-        <View style={style.buttonContainer}>{cameraButton}</View>
-        <View style={style.buttonContainer}>{galleryButton}</View>
-        {directInputButton}
+        <View style={globalStyle.contentMargins}>
+          <View style={style.pageTitleContainer}>{pageTitle}</View>
+          <View style={style.buttonContainer}>{cameraButton}</View>
+          <View style={style.buttonContainer}>{galleryButton}</View>
+          {directInputButton}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
