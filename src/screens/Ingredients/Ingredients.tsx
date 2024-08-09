@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import BackButton from '../../components/BackButton/BackButton';
 import {getHeader3, getHeader1} from '../../compositeLayers/Header/getHeader';
@@ -8,6 +8,8 @@ import {
   getPrimaryButton,
   getSecondaryButton,
 } from '../../compositeLayers/Button/getButton';
+import {Routes} from '../../navigation/Routes';
+import {IngredientsFactory} from '../../creation/IngredientsFactory';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
@@ -17,6 +19,7 @@ interface Props {
 }
 
 const Ingredients: React.FC<Props> = ({navigation}) => {
+  const controller = useRef(new IngredientsFactory().createController());
   const ingredientsList = [
     {
       settingId: 1,
@@ -34,7 +37,9 @@ const Ingredients: React.FC<Props> = ({navigation}) => {
 
   const screenTitle = getHeader1('Ingredients', 'center');
   const continueButton = getPrimaryButton('Continue', () => {});
-  const addNewButton = getSecondaryButton('Add', () => {});
+  const addNewButton = getSecondaryButton('Add', () => {
+    navigation.push(Routes.ModifyInput);
+  });
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>

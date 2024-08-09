@@ -1,6 +1,6 @@
 import {IngredientsService} from '../../services/IngredientsService/IngredientsService';
 
-export class DirectInputController {
+export class ModifyInputController {
   private ingredientsService: IngredientsService;
 
   constructor(ingredientsService: IngredientsService) {

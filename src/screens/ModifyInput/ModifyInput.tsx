@@ -4,18 +4,18 @@ import {SafeAreaView, ScrollView, View} from 'react-native';
 import BackButton from '../../components/BackButton/BackButton';
 import Input from '../../components/Input/Input';
 import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
-import {DirectInputFactory} from '../../creation/DirectInputFactory';
+import {ModifyInputFactory} from '../../creation/ModifyInputFactory';
+import {Routes} from '../../navigation/Routes';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
-import {Routes} from '../../navigation/Routes';
 
 interface Props {
   navigation: any;
 }
 
-const DirectInput: React.FC<Props> = ({navigation}) => {
-  const controller = useRef(new DirectInputFactory().createController());
+const ModifyInput: React.FC<Props> = ({navigation}) => {
+  const controller = useRef(new ModifyInputFactory().createController());
   const [value, setValue] = useState('');
   const continueButton = getPrimaryButton(
     'Continue',
@@ -51,4 +51,4 @@ const DirectInput: React.FC<Props> = ({navigation}) => {
   );
 };
 
-export default DirectInput;
+export default ModifyInput;

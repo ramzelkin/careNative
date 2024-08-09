@@ -3,6 +3,6 @@ export const Routes: {[key: string]: string} = {
   Profile: 'Profile',
   ChooseOption: 'ChooseOption',
   Permissions: 'Permissions',
-  DirectInput: 'DirectInput',
+  ModifyInput: 'ModifyInput',
   Ingredients: 'Ingredients',
 };
