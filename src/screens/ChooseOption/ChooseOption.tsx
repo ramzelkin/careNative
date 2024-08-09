@@ -45,16 +45,17 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[globalStyle.headerIndents, globalStyle.headerContainer]}>
           <BackButton
-            title={'Back'}
             onPress={() => {
               navigation.goBack();
             }}
           />
         </View>
-        <View style={style.pageTitleContainer}>{pageTitle}</View>
-        <View style={style.buttonContainer}>{cameraButton}</View>
-        <View style={style.buttonContainer}>{galleryButton}</View>
-        {directInputButton}
+        <View style={globalStyle.contentMargins}>
+          <View style={style.pageTitleContainer}>{pageTitle}</View>
+          <View style={style.buttonContainer}>{cameraButton}</View>
+          <View style={style.buttonContainer}>{galleryButton}</View>
+          {directInputButton}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

@@ -14,8 +14,6 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: horizontalScale(16),
-    // marginVertical: verticalScale(12),
   },
   secondaryButton: {
     height: verticalScale(44),
@@ -24,8 +22,6 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: horizontalScale(16),
-    // marginVertical: verticalScale(12),
   },
   title1: {
     color: '#FCF7FA',

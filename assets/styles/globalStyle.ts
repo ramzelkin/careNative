@@ -15,7 +15,10 @@ const globalStyle = StyleSheet.create({
   },
   headerContainer: {
     flexDirection: 'row',
-    alignItems: 'baseline',
+    alignItems: 'center',
+    marginHorizontal: horizontalScale(16),
+  },
+  contentMargins: {
     marginHorizontal: horizontalScale(16),
   },
 });
