@@ -42,9 +42,17 @@ const MainNavigation = () => {
         initialParams={{coordinator: coordinator.current}}
       />
       <Stack.Screen name={'Profile'} component={Profile} />
-      <Stack.Screen name={'ChooseOption'} component={ChooseOption} />
+      <Stack.Screen
+        name={'ChooseOption'}
+        component={ChooseOption}
+        initialParams={{coordinator: coordinator.current}}
+      />
       <Stack.Screen name={'Permissions'} component={Permissions} />
-      <Stack.Screen name={'DirectInput'} component={ModifyInput} />
+      <Stack.Screen
+        name={'ModifyInput'}
+        component={ModifyInput}
+        initialParams={{coordinator: coordinator.current}}
+      />
       <Stack.Screen name={'Ingredients'} component={Ingredients} />
     </Stack.Navigator>
   );
