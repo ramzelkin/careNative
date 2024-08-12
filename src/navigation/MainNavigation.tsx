@@ -1,5 +1,4 @@
 import React, {useRef} from 'react';
-import {Routes} from './Routes';
 import {createStackNavigator} from '@react-navigation/stack';
 import Welcome from '../screens/Welcome/Welcome';
 import Profile from '../screens/Profile/Profile';
@@ -35,7 +34,7 @@ const MainNavigation = () => {
         },
         headerShown: false,
       }}
-      initialRouteName={Routes.Welcome}>
+      initialRouteName={'Welcome'}>
       <Stack.Screen
         name={'Welcome'}
         component={Welcome}

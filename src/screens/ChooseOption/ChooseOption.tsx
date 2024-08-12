@@ -40,16 +40,11 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
     controller.current.setupCamera();
   });
 
-  // controller.current.onPermissionsDenied = () => {
-  //   navigation.navigate(Routes.Permissions);
-  // };
-
   const galleryButton = getSecondaryButton('Gallery', () => {
     controller.current.setupImageLibrary();
   });
   const directInputButton = getSecondaryButton('Direct Input', () => {
     coordinator.chooseOptionScreenContinue();
-    // navigation.navigate(Routes.DirectInput);
   });
 
   return (

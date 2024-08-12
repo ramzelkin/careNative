@@ -53,9 +53,7 @@ const Ingredients: React.FC<Props> = ({navigation}) => {
 
   const screenTitle = getHeader1('Ingredients', 'center');
   const continueButton = getPrimaryButton('Continue', () => {});
-  const addNewButton = getSecondaryButton('Add', () => {
-    // navigation.push(Routes.ModifyInput);
-  });
+  const addNewButton = getSecondaryButton('Add', () => {});
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>

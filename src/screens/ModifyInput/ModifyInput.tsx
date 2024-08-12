@@ -38,7 +38,6 @@ const ModifyInput: React.FC<Props> = ({navigation}) => {
     () => {
       controller.current.getIngredients(value);
       coordinator.modifyInputScreenContinue();
-      // navigation.navigate(Routes.Ingredients);
     },
     value.length < 3,
   );
