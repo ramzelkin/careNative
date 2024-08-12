@@ -8,6 +8,10 @@ import {
   ModifyInputCoordinator,
   ModifyInputParamList,
 } from '../screens/ModifyInput/ModifyInput';
+import {
+  IngredientsCoordinator,
+  IngredientsParamList,
+} from '../screens/Ingredients/Ingredients';
 
 export const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
@@ -16,25 +20,33 @@ type RootStackParamList = ChooseOptionParamList &
   ChooseOptionCoordinator &
   ChooseOptionParamList &
   ModifyInputCoordinator &
-  ModifyInputParamList;
+  ModifyInputParamList &
+  IngredientsCoordinator &
+  IngredientsParamList;
 
 export class Coordinator
   implements
     WelcomeCoordinator,
     ModifyInputCoordinator,
-    ChooseOptionCoordinator
+    ChooseOptionCoordinator,
+    IngredientsCoordinator
 {
   welcomeScreenContinue() {
     if (navigationRef.isReady()) {
       navigationRef.navigate('ChooseOption', {coordinator: this});
     }
   }
-  modifyInputScreenContinue() {
+  chooseOptionScreenContinue() {
     if (navigationRef.isReady()) {
       navigationRef.navigate('ModifyInput', {coordinator: this});
     }
   }
-  chooseOptionScreenContinue() {
+  modifyInputScreenContinue() {
+    if (navigationRef.isReady()) {
+      navigationRef.navigate('Ingredients', {coordinator: this});
+    }
+  }
+  ingredientsScreenContinue() {
     if (navigationRef.isReady()) {
       navigationRef.navigate('ModifyInput', {coordinator: this});
     }

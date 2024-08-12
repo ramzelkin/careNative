@@ -1,5 +1,4 @@
 import React, {useState, useRef} from 'react';
-
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import BackButton from '../../components/BackButton/BackButton';
 import Input from '../../components/Input/Input';

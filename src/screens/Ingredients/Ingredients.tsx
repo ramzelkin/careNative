@@ -8,17 +8,33 @@ import {
   getPrimaryButton,
   getSecondaryButton,
 } from '../../compositeLayers/Button/getButton';
-import {Routes} from '../../navigation/Routes';
 import {IngredientsFactory} from '../../creation/IngredientsFactory';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
 
+interface IngredientsNavigation {
+  navigate(route: string): void;
+  goBack(): void;
+}
+
+export type IngredientsParamList = {
+  Ingredients: {coordinator: IngredientsCoordinator};
+};
+
+export interface IngredientsCoordinator {
+  ingredientsScreenContinue(): void;
+}
+
 interface Props {
-  navigation: any;
+  navigation: IngredientsNavigation;
 }
 
 const Ingredients: React.FC<Props> = ({navigation}) => {
+  const route = useRoute<RouteProp<IngredientsParamList, 'Ingredients'>>();
+  const coordinator: IngredientsCoordinator = route.params.coordinator;
+
   const controller = useRef(new IngredientsFactory().createController());
   const ingredientsList = [
     {
@@ -38,7 +54,7 @@ const Ingredients: React.FC<Props> = ({navigation}) => {
   const screenTitle = getHeader1('Ingredients', 'center');
   const continueButton = getPrimaryButton('Continue', () => {});
   const addNewButton = getSecondaryButton('Add', () => {
-    navigation.push(Routes.ModifyInput);
+    // navigation.push(Routes.ModifyInput);
   });
 
   return (
