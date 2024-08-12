@@ -1,24 +1,31 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
-import {Routes} from '../../navigation/Routes';
 import {getHeader1, getHeader2} from '../../compositeLayers/Header/getHeader';
 import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
 
-interface Props {
-  navigation: any;
+import {RouteProp, useRoute} from '@react-navigation/native';
+
+export type WelcomeParamList = {
+  Welcome: {coordinator: WelcomeCoordinator};
+};
+
+export interface WelcomeCoordinator {
+  welcomeScreenContinue(): void;
 }
 
-const Welcome: React.FC<Props> = ({navigation}) => {
+const Welcome: React.FC = () => {
+  const route = useRoute<RouteProp<WelcomeParamList, 'Welcome'>>();
+  const coordinator: WelcomeCoordinator = route.params.coordinator;
   const screenTitle = getHeader1('Welcome to iCare', 'center');
   const contentTitle = getHeader2(
     "We're here to help you find your perfect formula.",
     'center',
   );
   const button = getPrimaryButton('Start my quiz', () => {
-    navigation.navigate(Routes.ChooseOption);
+    coordinator.welcomeScreenContinue();
   });
 
   return (
