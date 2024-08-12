@@ -17,19 +17,11 @@ export type ChooseOptionParamList = {
 };
 
 export interface ChooseOptionCoordinator {
-  chooseOptionScreenContinue(): void;
-}
-
-interface ChooseOptionNavigation {
-  navigate(route: string): void;
+  chooseOptionScreenModifyInput(): void;
   goBack(): void;
 }
 
-interface Props {
-  navigation: ChooseOptionNavigation;
-}
-
-const ChooseOption: React.FC<Props> = ({navigation}) => {
+const ChooseOption: React.FC = () => {
   const route = useRoute<RouteProp<ChooseOptionParamList, 'ChooseOption'>>();
   const coordinator: ChooseOptionCoordinator = route.params.coordinator;
 
@@ -43,8 +35,8 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
   const galleryButton = getSecondaryButton('Gallery', () => {
     controller.current.setupImageLibrary();
   });
-  const directInputButton = getSecondaryButton('Direct Input', () => {
-    coordinator.chooseOptionScreenContinue();
+  const directInputButton = getSecondaryButton('Text', () => {
+    coordinator.chooseOptionScreenModifyInput();
   });
 
   return (
@@ -53,7 +45,7 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
         <View style={[globalStyle.headerIndents, globalStyle.headerContainer]}>
           <BackButton
             onPress={() => {
-              navigation.goBack();
+              coordinator.goBack();
             }}
           />
         </View>

@@ -14,24 +14,16 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
 
-interface IngredientsNavigation {
-  navigate(route: string): void;
-  goBack(): void;
-}
-
 export type IngredientsParamList = {
   Ingredients: {coordinator: IngredientsCoordinator};
 };
 
 export interface IngredientsCoordinator {
   ingredientsScreenContinue(): void;
+  goBack(): void;
 }
 
-interface Props {
-  navigation: IngredientsNavigation;
-}
-
-const Ingredients: React.FC<Props> = ({navigation}) => {
+const Ingredients: React.FC = () => {
   const route = useRoute<RouteProp<IngredientsParamList, 'Ingredients'>>();
   const coordinator: IngredientsCoordinator = route.params.coordinator;
 
@@ -62,7 +54,7 @@ const Ingredients: React.FC<Props> = ({navigation}) => {
           <View style={style.backButtonContainer}>
             <BackButton
               onPress={() => {
-                navigation.goBack();
+                coordinator.goBack();
               }}
             />
           </View>

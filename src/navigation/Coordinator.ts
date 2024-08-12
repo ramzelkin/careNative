@@ -17,11 +17,8 @@ export const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
 type RootStackParamList = ChooseOptionParamList &
   WelcomeParamList &
-  ChooseOptionCoordinator &
   ChooseOptionParamList &
-  ModifyInputCoordinator &
   ModifyInputParamList &
-  IngredientsCoordinator &
   IngredientsParamList;
 
 export class Coordinator
@@ -36,7 +33,7 @@ export class Coordinator
       navigationRef.navigate('ChooseOption', {coordinator: this});
     }
   }
-  chooseOptionScreenContinue() {
+  chooseOptionScreenModifyInput() {
     if (navigationRef.isReady()) {
       navigationRef.navigate('ModifyInput', {coordinator: this});
     }
@@ -49,6 +46,12 @@ export class Coordinator
   ingredientsScreenContinue() {
     if (navigationRef.isReady()) {
       navigationRef.navigate('ModifyInput', {coordinator: this});
+    }
+  }
+
+  goBack() {
+    if (navigationRef.canGoBack()) {
+      navigationRef.goBack();
     }
   }
 }

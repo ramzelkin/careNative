@@ -9,24 +9,16 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
 
-interface ModifyInputNavigation {
-  navigate(route: string): void;
-  goBack(): void;
-}
-
 export type ModifyInputParamList = {
   ModifyInput: {coordinator: ModifyInputCoordinator};
 };
 
 export interface ModifyInputCoordinator {
   modifyInputScreenContinue(): void;
+  goBack(): void;
 }
 
-interface Props {
-  navigation: ModifyInputNavigation;
-}
-
-const ModifyInput: React.FC<Props> = ({navigation}) => {
+const ModifyInput: React.FC = () => {
   const route = useRoute<RouteProp<ModifyInputParamList, 'ModifyInput'>>();
   const coordinator: ModifyInputCoordinator = route.params.coordinator;
 
@@ -48,7 +40,7 @@ const ModifyInput: React.FC<Props> = ({navigation}) => {
         <View style={[globalStyle.headerIndents, globalStyle.headerContainer]}>
           <BackButton
             onPress={() => {
-              navigation.goBack();
+              coordinator.goBack();
             }}
           />
         </View>
