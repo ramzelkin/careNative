@@ -1,6 +1,5 @@
 import React, {useRef} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
-import {Routes} from '../../navigation/Routes';
 import BackButton from '../../components/BackButton/BackButton';
 import {getHeader2} from '../../compositeLayers/Header/getHeader';
 import {
@@ -8,20 +7,24 @@ import {
   getSecondaryButton,
 } from '../../compositeLayers/Button/getButton';
 import {ChooseOptionFactory} from '../../creation/ChooseOptionFactory';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
 
-interface ChooseOptionNavigation {
-  navigate(route: string): void;
+export type ChooseOptionParamList = {
+  ChooseOption: {coordinator: ChooseOptionCoordinator};
+};
+
+export interface ChooseOptionCoordinator {
+  chooseOptionScreenModifyInput(): void;
   goBack(): void;
 }
 
-interface Props {
-  navigation: ChooseOptionNavigation;
-}
+const ChooseOption: React.FC = () => {
+  const route = useRoute<RouteProp<ChooseOptionParamList, 'ChooseOption'>>();
+  const coordinator: ChooseOptionCoordinator = route.params.coordinator;
 
-const ChooseOption: React.FC<Props> = ({navigation}) => {
   const controller = useRef(new ChooseOptionFactory().createController());
   const pageTitle = getHeader2('Please choose an option', 'center');
 
@@ -29,15 +32,11 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
     controller.current.setupCamera();
   });
 
-  // controller.current.onPermissionsDenied = () => {
-  //   navigation.navigate(Routes.Permissions);
-  // };
-
   const galleryButton = getSecondaryButton('Gallery', () => {
     controller.current.setupImageLibrary();
   });
-  const directInputButton = getSecondaryButton('Direct Input', () => {
-    navigation.navigate(Routes.DirectInput);
+  const directInputButton = getSecondaryButton('Text', () => {
+    coordinator.chooseOptionScreenModifyInput();
   });
 
   return (
@@ -45,16 +44,17 @@ const ChooseOption: React.FC<Props> = ({navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[globalStyle.headerIndents, globalStyle.headerContainer]}>
           <BackButton
-            title={'Back'}
             onPress={() => {
-              navigation.goBack();
+              coordinator.goBack();
             }}
           />
         </View>
-        <View style={style.pageTitleContainer}>{pageTitle}</View>
-        <View style={style.buttonContainer}>{cameraButton}</View>
-        <View style={style.buttonContainer}>{galleryButton}</View>
-        {directInputButton}
+        <View style={globalStyle.contentMargins}>
+          <View style={style.pageTitleContainer}>{pageTitle}</View>
+          <View style={style.buttonContainer}>{cameraButton}</View>
+          <View style={style.buttonContainer}>{galleryButton}</View>
+          {directInputButton}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

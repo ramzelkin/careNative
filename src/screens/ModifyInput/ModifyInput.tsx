@@ -1,25 +1,35 @@
 import React, {useState, useRef} from 'react';
-
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import BackButton from '../../components/BackButton/BackButton';
 import Input from '../../components/Input/Input';
 import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
-import {DirectInputFactory} from '../../creation/DirectInputFactory';
+import {ModifyInputFactory} from '../../creation/ModifyInputFactory';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
 
-interface Props {
-  navigation: any;
+export type ModifyInputParamList = {
+  ModifyInput: {coordinator: ModifyInputCoordinator};
+};
+
+export interface ModifyInputCoordinator {
+  modifyInputScreenContinue(): void;
+  goBack(): void;
 }
 
-const DirectInput: React.FC<Props> = ({navigation}) => {
-  const controller = useRef(new DirectInputFactory().createController());
+const ModifyInput: React.FC = () => {
+  const route = useRoute<RouteProp<ModifyInputParamList, 'ModifyInput'>>();
+  const coordinator: ModifyInputCoordinator = route.params.coordinator;
+
+  const controller = useRef(new ModifyInputFactory().createController());
+
   const [value, setValue] = useState('');
   const continueButton = getPrimaryButton(
     'Continue',
     () => {
       controller.current.getIngredients(value);
+      coordinator.modifyInputScreenContinue();
     },
     value.length < 3,
   );
@@ -29,9 +39,8 @@ const DirectInput: React.FC<Props> = ({navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[globalStyle.headerIndents, globalStyle.headerContainer]}>
           <BackButton
-            title={'Back'}
             onPress={() => {
-              navigation.goBack();
+              coordinator.goBack();
             }}
           />
         </View>
@@ -50,4 +59,4 @@ const DirectInput: React.FC<Props> = ({navigation}) => {
   );
 };
 
-export default DirectInput;
+export default ModifyInput;

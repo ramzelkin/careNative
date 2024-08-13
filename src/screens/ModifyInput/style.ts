@@ -7,6 +7,7 @@ const style = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: verticalScale(20),
+    marginHorizontal: horizontalScale(16),
   },
 });
 
