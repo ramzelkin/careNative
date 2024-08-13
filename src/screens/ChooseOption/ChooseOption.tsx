@@ -6,15 +6,22 @@ import {
   getPrimaryButton,
   getSecondaryButton,
 } from '../../compositeLayers/Button/getButton';
-import {ChooseOptionFactory} from '../../creation/ChooseOptionFactory';
+// import {ChooseOptionFactory} from '../../creation/ChooseOptionFactory';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
 
 export type ChooseOptionParamList = {
-  ChooseOption: {coordinator: ChooseOptionCoordinator};
+  ChooseOption: {
+    coordinator: ChooseOptionCoordinator;
+    factory: ChooseOptionFactory;
+  };
 };
+
+export interface ChooseOptionFactory {
+  createController(): void;
+}
 
 export interface ChooseOptionCoordinator {
   chooseOptionScreenModifyInput(): void;
@@ -25,11 +32,12 @@ const ChooseOption: React.FC = () => {
   const route = useRoute<RouteProp<ChooseOptionParamList, 'ChooseOption'>>();
   const coordinator: ChooseOptionCoordinator = route.params.coordinator;
 
-  const controller = useRef(new ChooseOptionFactory().createController());
+  const controller = useRef(route.params.factory.createController());
   const pageTitle = getHeader2('Please choose an option', 'center');
 
   const cameraButton = getPrimaryButton('Camera', () => {
-    controller.current.setupCamera();
+    console.log(route.params.factory);
+    // controller.current.setupCamera();
   });
 
   const galleryButton = getSecondaryButton('Gallery', () => {

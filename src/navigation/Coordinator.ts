@@ -12,6 +12,7 @@ import {
   IngredientsCoordinator,
   IngredientsParamList,
 } from '../screens/Ingredients/Ingredients';
+import {ChooseOptionFactory} from '../creation/ChooseOptionFactory';
 
 export const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
@@ -30,7 +31,10 @@ export class Coordinator
 {
   welcomeScreenContinue() {
     if (navigationRef.isReady()) {
-      navigationRef.navigate('ChooseOption', {coordinator: this});
+      navigationRef.navigate('ChooseOption', {
+        coordinator: this,
+        factory: new ChooseOptionFactory(),
+      });
     }
   }
   chooseOptionScreenModifyInput() {
