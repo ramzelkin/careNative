@@ -2,6 +2,7 @@ import {createNavigationContainerRef} from '@react-navigation/native';
 import {WelcomeCoordinator, WelcomeParamList} from '../screens/Welcome/Welcome';
 import {
   ChooseOptionCoordinator,
+  ChooseOptionFactory,
   ChooseOptionParamList,
 } from '../screens/ChooseOption/ChooseOption';
 import {
@@ -12,7 +13,6 @@ import {
   IngredientsCoordinator,
   IngredientsParamList,
 } from '../screens/Ingredients/Ingredients';
-import {ChooseOptionFactory} from '../creation/ChooseOptionFactory';
 
 export const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
@@ -29,11 +29,17 @@ export class Coordinator
     ChooseOptionCoordinator,
     IngredientsCoordinator
 {
+  private chooseOptionFactory: ChooseOptionFactory;
+
+  constructor(chooseOptionFactory: ChooseOptionFactory) {
+    this.chooseOptionFactory = chooseOptionFactory;
+  }
+
   welcomeScreenContinue() {
     if (navigationRef.isReady()) {
       navigationRef.navigate('ChooseOption', {
         coordinator: this,
-        factory: new ChooseOptionFactory(),
+        controller: this.chooseOptionFactory.createController(),
       });
     }
   }
