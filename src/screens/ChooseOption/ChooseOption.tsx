@@ -1,17 +1,16 @@
 import React, {useRef} from 'react';
-import {SafeAreaView, ScrollView, View, LogBox} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
 import BackButton from '../../components/BackButton/BackButton';
 import {getHeader2} from '../../compositeLayers/Header/getHeader';
 import {
   getPrimaryButton,
   getSecondaryButton,
 } from '../../compositeLayers/Button/getButton';
-// import {ChooseOptionFactory} from '../../creation/ChooseOptionFactory';
 import {RouteProp, useRoute} from '@react-navigation/native';
+import {ChooseOptionController} from './ChooseOptionController';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
-import {ChooseOptionController} from './ChooseOptionController';
 
 export type ChooseOptionParamList = {
   ChooseOption: {
@@ -31,15 +30,8 @@ export interface ChooseOptionCoordinator {
 
 const ChooseOption: React.FC = () => {
   const route = useRoute<RouteProp<ChooseOptionParamList, 'ChooseOption'>>();
-
   const coordinator = route.params.coordinator;
-
   const controller = useRef(route.params.controller);
-
-  LogBox.ignoreLogs([
-    'Non-serializable values were found in the navigation state',
-  ]);
-
   const pageTitle = getHeader2('Please choose an option', 'center');
 
   const cameraButton = getPrimaryButton('Camera', () => {
