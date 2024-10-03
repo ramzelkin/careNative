@@ -6,7 +6,7 @@ import ChooseOption from '../screens/ChooseOption/ChooseOption';
 import Permissions from '../screens/Permissions/Permissions';
 import ModifyInput from '../screens/ModifyInput/ModifyInput';
 import Ingredients from '../screens/Ingredients/Ingredients';
-import {Coordinator} from './Coordinator';
+import {CoordinatorFactory} from '../creation/CoordinatorFactory';
 
 const Stack = createStackNavigator();
 // const MainMenuNavigation = () => {
@@ -24,7 +24,7 @@ const Stack = createStackNavigator();
 // };
 
 const MainNavigation = () => {
-  const coordinator = useRef(new Coordinator());
+  const coordinator = useRef(new CoordinatorFactory().createCoordinator());
 
   return (
     <Stack.Navigator

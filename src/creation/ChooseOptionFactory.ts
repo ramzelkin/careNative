@@ -1,11 +1,14 @@
 import {ServiceLocator} from './ServiceLocator';
-import {ChooseOptionController} from '../screens/ChooseOption/ChooseOptionController';
+import {
+  ChooseOptionController,
+  ChooseOptionControllerImpl,
+} from '../screens/ChooseOption/ChooseOptionController';
 import {ConcreteSettingsService} from '../services/SettingsService/ConcreteSettingsService';
 import {PhotoLibraryPermissionsService} from '../services/PermissionsService/PhotoLibraryPermissionsService';
 
-export class ChooseOptionFactory {
+export class ChooseOptionFactoryInstance {
   createController(): ChooseOptionController {
-    return new ChooseOptionController(
+    return new ChooseOptionControllerImpl(
       ServiceLocator.instance.permissionsService,
       new PhotoLibraryPermissionsService(),
       new ConcreteSettingsService(),

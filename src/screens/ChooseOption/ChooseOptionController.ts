@@ -5,7 +5,18 @@ import {
 } from '../../services/PermissionsService/PermissionsService';
 import {SettingsService} from '../../services/SettingsService/SettingsService';
 
-export class ChooseOptionController {
+export interface ChooseOptionController {
+  onPermissionsPhotoLibraryGranted: () => void;
+  onPermissionsCameraGranted: () => void;
+  onPermissionsDenied: () => void;
+  onPermissionsLimited: () => void;
+  onPermissionsUnavailable: () => void;
+  onPermissionsBlocked: () => void;
+  setupImageLibrary(): void;
+  setupCamera(): void;
+}
+
+export class ChooseOptionControllerImpl implements ChooseOptionController {
   private cameraPermissionsService: PermissionsService;
   private photoLibraryPermissionsService: PermissionsService;
   private settingsService: SettingsService;
