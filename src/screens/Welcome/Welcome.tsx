@@ -2,11 +2,10 @@ import React from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {getHeader1, getHeader2} from '../../compositeLayers/Header/getHeader';
 import {getPrimaryButton} from '../../compositeLayers/Button/getButton';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
 import globalStyle from '../../../assets/styles/globalStyle';
 import style from './style';
-
-import {RouteProp, useRoute} from '@react-navigation/native';
 
 export type WelcomeParamList = {
   Welcome: {coordinator: WelcomeCoordinator};

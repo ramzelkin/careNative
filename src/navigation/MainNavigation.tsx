@@ -6,6 +6,7 @@ import ChooseOption from '../screens/ChooseOption/ChooseOption';
 import Permissions from '../screens/Permissions/Permissions';
 import ModifyInput from '../screens/ModifyInput/ModifyInput';
 import Ingredients from '../screens/Ingredients/Ingredients';
+import Login from '../screens/Login/Login';
 import {Coordinator} from './Coordinator';
 
 const Stack = createStackNavigator();
@@ -53,6 +54,7 @@ const MainNavigation = () => {
         initialParams={{coordinator: coordinator.current}}
       />
       <Stack.Screen name={'Ingredients'} component={Ingredients} />
+      <Stack.Screen name={'Login'} component={Login} />
     </Stack.Navigator>
   );
 };
