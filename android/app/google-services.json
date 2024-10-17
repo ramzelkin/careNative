@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "807920927735",
+    "project_id": "mycare-95736",
+    "storage_bucket": "mycare-95736.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807920927735:android:dc95bc45f507a75f2ae4f2",
+        "android_client_info": {
+          "package_name": "com.mycarenative"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW6Z6l3Ymmg4y8IiORMTsqMIHl7dnrPrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
