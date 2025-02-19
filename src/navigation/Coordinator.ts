@@ -2,6 +2,7 @@ import {createNavigationContainerRef} from '@react-navigation/native';
 import {WelcomeCoordinator, WelcomeParamList} from '../screens/Welcome/Welcome';
 import {
   ChooseOptionCoordinator,
+  ChooseOptionFactory,
   ChooseOptionParamList,
 } from '../screens/ChooseOption/ChooseOption';
 import {
@@ -28,9 +29,18 @@ export class Coordinator
     ChooseOptionCoordinator,
     IngredientsCoordinator
 {
+  private chooseOptionFactory: ChooseOptionFactory;
+
+  constructor(chooseOptionFactory: ChooseOptionFactory) {
+    this.chooseOptionFactory = chooseOptionFactory;
+  }
+
   welcomeScreenContinue() {
     if (navigationRef.isReady()) {
-      navigationRef.navigate('ChooseOption', {coordinator: this});
+      navigationRef.navigate('ChooseOption', {
+        coordinator: this,
+        controller: this.chooseOptionFactory.createController(),
+      });
     }
   }
   chooseOptionScreenModifyInput() {
